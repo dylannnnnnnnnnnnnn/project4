@@ -1,0 +1,263 @@
+html{
+    height:100%;
+}
+body {
+    background-color:var(--backcol);
+    display: flex;
+    flex-direction: row;
+    height:100%;
+}
+* {
+    font-family: sans-serif;
+    color:var(--text);
+}
+:root{
+    --backcol:white;
+    --navhov:lightskyblue;
+    --movhov:mediumblue;
+    --navback:dodgerblue;
+    --footcol:dodgerblue;
+    --moviewidth:45%;
+    --text:black;
+}
+html[data-theme='dark'] {
+    --backcol:rgb(46, 46, 46);
+    --navhov:lightskyblue;
+    --movhov:rgb(94, 0, 134);
+    --navback:black;
+    --navhov:grey;
+    --text:white;
+}
+input[type=checkbox]{
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}
+/*styles for the label*/
+label {
+	cursor: pointer;
+	text-indent: -9999px;
+	width: 52px;
+	height: 27px;
+	background: grey;
+	float: right;
+	border-radius: 100px;
+	position: relative;
+}
+
+/* controls the dot*/
+label:after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 20px;
+	height: 20px;
+	background: #fff;
+	border-radius: 90px;
+	transition: 0.3s;
+}
+
+/* controls the dot after it is clicked */
+input:checked + label:after {
+	left: calc(100% - 5px);
+	transform: translateX(-100%);
+}
+
+html.transition,
+html.transition *,
+html.transition *:before,
+html.transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+.responsive{
+    width:100%;
+    height:auto;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    margin-top: 6%;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    width:80%;
+}
+
+/*Nav Properties */
+    /*Nav container */
+nav {
+    background-color:var(--navback);
+    color:var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    padding-right: 3px;
+    margin:-8px 0px -8px -8px;
+    padding: 10px;
+    }
+    /*Data in the nav */
+nav p {
+    color:var(--navtext);
+    background-color: var(--navback);
+    font-size:2.5vw;
+    text-align:center;
+    width:100%;
+    margin:0;
+    padding: 10% 10px 10% 10px;
+
+}
+nav p:hover {
+    background-color: var(--navhov);
+}
+.notlogo{
+    width: 15vw;
+    height: 69px;
+}
+
+
+/* Movie Grid properties (effects the movies and their display)*/
+    /*Container for the all movies*/
+.container {
+    background-color: var(--backcol);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-left:5px;
+    align-items: center;
+    height: 100%;
+}
+.movies{
+    background-color: var(--backcol);
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-left:5px;
+    align-items: center;
+}
+.movie{
+    width: var(--moviewidth);
+    height:20vw;
+    font-size: 1vw;
+    padding: 5px;
+    opacity:.85;
+    border: transparent solid .1px ;
+    box-sizing: border-box;
+}
+
+h1{
+    text-align: center;
+    height: 25%;
+}
+.movie:hover{
+    border: var(--text) solid .1px ;
+    opacity: 1;
+}
+img {
+    width:100%;
+    height:75%;
+}
+h3 {
+    border-bottom: 3px solid black;
+    font-weight:600;
+}
+
+footer {
+    height:fit-content;
+    width:100%;
+    margin-left: -8px;
+    float:right;
+    color:var(--footcol);
+    font-size: .75em;
+    font-family:sans-serif ;
+    margin-left: 25px;;
+}
+ul {
+    text-decoration: none;
+}
+
+.hamburger{
+    width:50px;
+    visibility: hidden;
+}
+
+.toggle-container{
+    margin-left: -25px;
+}
+@media screen and (min-width: 1080px) {
+    :root{
+        --moviewidth:25%;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    :root{
+        --moviewidth:50%;
+    }    
+
+    nav {
+        font-size: 4vw;
+    }
+    nav p {
+        font-size: fit-content;
+    }
+ 
+   .notlogo{
+        width: 75px;
+    }
+
+}
+
+@media screen and (max-width: 414px){
+    :root{
+        --moviewidth:100%;
+    }
+    .row{
+        flex-direction: column;
+    }
+    body {
+        flex-direction: column;
+    }
+    .movie{
+        height:fit-content;
+        font-size: 3vw;
+        
+    }
+    .container{
+        height: fit-content;
+    }
+    nav {
+        background-color:var(--navback);
+        color:var(--text);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom:5px;
+        width: 100%;
+        height:100px;
+        margin:-8px -8px 0px -8px;
+        
+    }
+    
+    nav p{
+        padding: 0px;
+        visibility: hidden;
+        width:0px;
+    }
+    .notlogo{
+        width:50%;
+    }
+    
+    .hamburger{
+        visibility: visible;
+        width:25%
+    }
+    label {
+        margin-bottom: 25px;
+        margin-left: 30px;
+    }
+}
